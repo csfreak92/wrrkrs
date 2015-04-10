@@ -1,0 +1,92 @@
+
+CREATE DATABASE FREELANCE
+
+CREATE TABLE EMPLOYERS(
+	emp_id int(10) AUTO_INCREMENT NOT NULL, 
+	emp_username varchar(50) NOT NULL, 
+	emp_password varchar(50) NOT NULL,
+	emp_first_name varchar(100) NOT NULL, 
+	emp_middle_initial varchar(5) NOT NULL, 
+	emp_last_name varchar(100) NOT NULL, 
+	emp_sex varchar(10) NOT NULL,
+	emp_address varchar(100) NOT NULL, 
+	emp_city varchar(50) NOT NULL, 
+	emp_state_province_region varchar(50) NOT NULL,
+	emp_country varchar(50) NOT NULL, 
+	emp_zipcode varchar(10) NOT NULL,
+	emp_contact_number varchar(50), 
+	emp_email_add varchar(50) NOT NULL,
+	PRIMARY KEY(emp_id)
+);
+
+CREATE TABLE FREELANCERS(
+	freelancer_id int(10) AUTO_INCREMENT NOT NULL, 
+	freelancer_username varchar(50) NOT NULL, 
+	freelancer_password varchar(50) NOT NULL,
+	freelancer_first_name varchar(100) NOT NULL, 
+	freelancer_middle_initial varchar(5) NOT NULL, 
+	freelancer_last_name varchar(100) NOT NULL, 
+	freelancer_sex varchar(10) NOT NULL, 
+	freelancer_address varchar(100) NOT NULL, 
+	freelancer_city varchar(50) NOT NULL, 
+	freelancer_state_province_region varchar(50) NOT NULL, 
+	freelancer_country varchar(50) NOT NULL, 
+	freelancer_zipcode varchar(10) NOT NULL, 
+	freelancer_contact_number varchar(50), 
+	freelancer_email_add varchar(50) NOT NULL, 
+	PRIMARY KEY(freelancer_id)
+);
+
+CREATE TABLE JOBS(
+	job_id int(10) AUTO_INCREMENT NOT NULL, 
+	job_code varchar(15) NOT NULL, 
+	job_name varchar(50) NOT NULL, 
+	job_description varchar(500) NOT NULL, 
+	job_type varchar(50) NOT NULL, 
+	job_duration varchar(100) NOT NULL, 
+	job_level varchar(50) NOT NULL, 
+	job_category varchar(100) NOT NULL, 
+	job_requirements varchar(500) NOT NULL, 
+	PRIMARY KEY(job_id)
+);
+
+CREATE TABLE EMPLOYER_JOB(
+	emp_job_id int(10) AUTO_INCREMENT NOT NULL, 
+	emp_id int(10) NOT NULL, 
+	job_id int(10) NOT NULL, 
+	emp_city varchar(50) NOT NULL, 
+	emp_state_province_region varchar(50) NOT NULL,
+	emp_country varchar(50) NOT NULL, 
+	emp_zipcode varchar(10) NOT NULL,
+	PRIMARY KEY(emp_job_id),
+	FOREIGN KEY(emp_id) REFERENCES EMPLOYERS(emp_id),
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id), 
+	FOREIGN KEY(emp_city) REFERENCES EMPLOYERS(emp_city), 
+	FOREIGN KEY(emp_state_province_region) REFERENCES EMPLOYES(emp_state_province_region),
+	FOREIGN KEY(emp_country) REFERENCES EMPLOYERS(emp_country), 
+	FOREIGN KEY(emp_zipcode) REFERENCES EMPLOYES(emp_zipcode)
+);
+
+CREATE TABLE FREELANCER_JOB(
+	freelancer_job_id int(10) AUTO_INCREMENT NOT NULL,
+	freelancer_id int(10) NOT NULL, 
+	job_id int(10) NOT NULL, 
+	PRIMARY KEY(freelancer_job_id), 
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id), 
+	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id)
+);
+
+CREATE TABLE JOB_APPLICATIONS(
+	job_application_id int(10) AUTO_INCREMENT NOT NULL, 
+	freelancer_id int(10) NOT NULL, 
+	job_id int(10) NOT NULL, 
+	job_application_status varchar(50) NOT NULL, 
+	PRIMARY KEY(job_application_id), 
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id), 
+	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id)
+);
+
+CREATE TABLE JOB_APPLICATION_RESPONSES(
+	job_response_id int(10) AUTO_INCREMENT NOT NULL, 
+
+);

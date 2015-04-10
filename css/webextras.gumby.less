@@ -1,0 +1,97 @@
+﻿@import "webextras.common.less";
+
+/** GUMBY OVERRIDES AND EXTENSIONS **/
+
+table {
+  tr td:first-child {
+    font-weight: normal;
+  }
+}
+
+.warning {
+  color: #f6b83f;
+}
+
+.error, 
+.danger {
+  color: #ca3838;
+}
+
+.success {
+  color: #58c026;
+}
+
+/** GUMBY OVERRIDES AND EXTENSIONS END **/
+   
+/** DATATABLE OVERRIDES AND EXTENSIONS **/
+
+table.dataTable {
+  tbody {
+    tr.success td {
+      background-color: #80CB92;
+    }
+    
+    tr.error td,
+    tr.danger td {
+      background-color: #DF8989;
+    }
+
+    tr.warning td {
+      background-color: #FBDCA0;
+    }
+
+    tr.info td {
+      background-color: #7B8085;
+    }
+  }
+}
+
+/** DATATABLE OVERRIDES AND EXTENSIONS END **/
+
+/** FLOT EXTENSIONS **/
+
+.legend {
+  table {
+    width: auto;
+
+    td {
+      font-size: 11px;
+      padding: 0 2px;
+      vertical-align: middle;
+    }
+  }
+}
+
+/** FLOT EXTENSIONS END **/
+
+/** ACTION MESSAGE STYLING **/
+.success,
+.danger,
+.info,
+.warning {
+  .close {
+    line-height: 20px;
+    position: relative;
+    right: -5px;
+    top: 2px;
+  }
+}
+
+button.close {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    opacity: 0.2;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+/** ACTION MESSAGE STYLING END **/

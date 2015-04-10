@@ -1,0 +1,11 @@
+
+REVISIONS AND SUGGESTIONS
+CCD - OMS 
+	* JOIN tables with concerned tables, get participant name, course, year, etc. and join with needed 
+	* per program must be exportable by per program in PDFs
+	* change the name of programs to PROGRAMS/ACTIVITIES
+	* remember that each PROGRAM can have ACTIVITIES as subs of it
+	* 
+
+	* if possible do connect this with MIS 
+	* create an import module for file uploads
