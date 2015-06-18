@@ -173,7 +173,7 @@
     // DIRECTLY BY ACCESSING THE DB  THAT'S WHY IT IS LIKE THIS! FIX THE INPUT AREA FIRST!
     var summary = '<?php echo $summary; ?>%';
     document.getElementById('summary_box').value = summary;
-    // $('#summary_box').html($('#summary_box').text().replace(/\n\r?/g, '<br />'));
+    $('#summary_box').html($('#summary_box').text().replace(/\\\n\r?/g, '<br />'));
 
     var rating = '<?php echo $rating; ?>%';
     document.getElementById('rating_text').value = rating;
