@@ -6,7 +6,7 @@
 | Last Date Updated: April 10, 2015
 | Version: 1.0
 | Latest Updates: 
-
+	
 | Bugs to fix: 
 
 |--------------------------------------------------------------------------
@@ -50,27 +50,34 @@ class Login_model extends CI_Model {
 		}
 	}
 
-	public function getloggedinusername( )
+	public function get_loggedin_username( )
 	{
 		$var = $this->session->userdata('logged_in');
 		// get the username of the logged in user in a session
-		$new = $var['username'];
-		return $new;
+		$uname = $var['username'];
+		return $uname;
 	}
 
-	public function getloggedinpass( )
+	public function get_loggedin_pass( )
 	{
 		$var = $this->session->userdata('logged_in');
-		// print_r($var);
 		// get the password of the logged in user in a session
 		$pass = $var['password'];
 		return $pass;
 	}
 
-	public function getloggedinuser( $username, $password )
+	public function get_loggedin_usertype()
 	{
-		// $this->loggedinuser('users');
-		$this->loggedinuser('accounts', $username, $password);
+		$var = $this->session->userdata('logged_in');
+		$type = $var['usertype'];
+		return $type;
+	}
+
+	public function get_user_fullname()
+	{
+		$var = $this->session->userdata('logged_in');
+		$full = $var['fullname'];
+		return $full;
 	}
 
 	public function loggedinuser( $table, $username, $password )

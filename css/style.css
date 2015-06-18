@@ -1,4 +1,49 @@
-/*
-We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
-However, this blank file is available if you prefer
-*/
+/* SIGNUP PAGE */
+#signuptbl{
+	padding: 5px;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+
+/* MESSAGING PAGE */
+	
+#receipient_name {
+	margin: auto;
+	font-family: sans-serif;
+	font-size: 15px;
+	background-color: white;
+	width: 500px;
+	height: 30px;
+}
+
+#onlineResume {
+	/*background-color: red;*/
+}
+
+#errordiv{
+	color: red;
+}
+
+#messagetbl{
+	padding: 5px;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+
+
+
+
+/* EMPLOYER PAGES */
+#jobposttbl{
+	padding: 5px;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+
+.modal-danger-title{
+	color: red;
+}
+
+.modal-success-title{
+	color: green;
+}

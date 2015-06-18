@@ -3,9 +3,10 @@
 /*
 /--------------------------------------------------------------------------
 | Code Maintainer: Ralph Nicole N. Andalis - Lead Web Developer/Backend Developer
-| Last Date Updated: December 25, 2014
+| Last Date Updated: April 12, 2014
 | Latest Updates: 
 |		* Created brief descriptions and comments
+		* updated the login mechanism since it has a bug due to the database design. now fixed
 |--------------------------------------------------------------------------
 */
 
@@ -57,14 +58,16 @@ class Verifylogin extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 		if ($this->form_validation->run() == FALSE) 
-		{
-			// field validation failed. user redirected to login page.
+		{	// field validation failed. user redirected to login page.
 			$this->load->view('login_view');
 		} 
 		else
-		{
-			// enter secured page	
-			// session_start();
+		{	// enter secured page	
+			if (!isset($_SESSION))
+			{
+			    session_start();
+			    echo "<div class='container'><br><h3>Welcome to Wrrkrs.com! Please wait while you are being redirected...</h3></div>";
+			}
 			redirect('core/secured_page', 'refresh');
 		}
 	}
@@ -86,17 +89,38 @@ class Verifylogin extends CI_Controller {
 		// query the database
 		$result = $this->login_model->login($username, $password);
 
-		if($result) {
+		if($result) 
+		{
 			$sess_array = array();
-			foreach ($result as $row) {
-				$sess_array = array(
-					'username' => $row->username, 
-					'password' => $row->password
-				);
-				$this->session->set_userdata('logged_in', $sess_array);
+			foreach($result as $row)
+			{
+				if($row->user_type == "employer")
+				{
+					$sess_array = array(
+						'username' => $row->emp_username, 
+						'password' => $row->emp_password, 
+						'usertype' => $row->user_type, 
+						'fullname' => $row->emp_first_name." ".$row->emp_middle_initial." ".$row->emp_last_name
+					);
+					$this->session->set_userdata('logged_in', $sess_array);
+				}
+				else if($row->user_type == "freelancer")
+				{
+					$sess_array = array(
+						'username' => $row->freelancer_username, 
+						'password' => $row->freelancer_password, 
+						'usertype' => $row->user_type, 
+						'fullname' => $row->freelancer_first_name." ".$row->freelancer_middle_initial." ".$row->freelancer_last_name
+					);
+					$this->session->set_userdata('logged_in', $sess_array);
+				}
+				else 
+					;
 			}
 			return TRUE;
-		} else {
+		} 
+		else 
+		{
 			$this->form_validation->set_message('check_database', 'Invalid username or password');
 			return FALSE;
 		}

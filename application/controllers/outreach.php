@@ -641,8 +641,9 @@ class Outreach extends CI_Controller {
 
 	public function logout() 
 	{
+		session_start();
 		$this->session->unset_userdata('logged_in');
-		// session_destroy();
+		session_destroy();
 		redirect('login', 'refresh');
 	}
 

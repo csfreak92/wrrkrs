@@ -4,21 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="New Freelance Platform for Locals">
-    <title>FREELANCE PLATFORM</title>
-    <!--[if lte IE 8]>
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-    <!--<![endif]-->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/pure.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/gumby.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/side-menu.css">
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/modernizr-2.6.2.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/jquery-2.0.2.min.js"></script>
+    <meta name="description" content="New Freelance Platform for Canadian Locals">
+    <b><title>Wrrkrs.com</title></b>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.css"/>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.11.1.js"></script>
+    <script src= "<?php echo base_url(); ?>js/bootstrap.js"></script>
 <style>
     #submitbtn
     {
-        cursor: pointer;
+      cursor: pointer;
     }
 </style>
 </head>
@@ -33,7 +28,17 @@
     </a>
     <br><br><br><br>
     <div class="fourteen columns">
-        <h3>Login to Freelance Platform</h3>
+        <div class="span2 offset11"><h4>SIGNUP</h4></div><br>
+        <div class="pull-right">
+          <form id='frmsignup' name='frmsignup' method='post' action='<?php echo base_url().'core/signup'; ?>'>
+            <div class="row">
+              <div class="span2 offset8"><input type="submit" class="btn btn-success" name="freelancers" id="freelancers" value="Find Freelancers"></div>
+              <div class="span2"><input type="submit" class="btn btn-success" name="jobs" id="jobs" value="Find Jobs"></div>
+            </div>    
+          </form>
+        </div>
+        <br><br><br>
+        <center><h3>Login to Wrrkrs.com</h3></center>
         <hr>
         <div class="row">
             <center>
@@ -41,75 +46,101 @@
             <div id="errordiv"><?php echo validation_errors(); ?></div>
             <form class="pure-form pure-form-aligned" method="post" action="verifylogin">
             <table id="logintable">
-				<tr><td></td><td align="center"><label for="login">Login</label></td></tr>
+				<!-- <tr><td></td><td align="center"><label for="login">Login</label></td></tr> -->
 				<tr><td><label for="username">Username:</label></td>
 					<td><input type="text" size="20" id="username" name="username"></td>
 				</tr>
 				<tr><td><label for="password">Password:</label></td>
 					<td><input type="password" size="20" id="password" name="password"></td>
 				</tr>
-				<center><tr><td></td><td><div class="large primary btn">
-					<button type="submit" class="btn" name="submitbtn" id="submitbtn" value="Login">
-					<a gumby-trigger="#loginBtn">Login</a>
-                </button></div></td></tr></center>
+				<center><tr><td></td><td><!-- <div class="large primary btn"> -->
+					<!-- <button type="submit" class="btn" name="submitbtn" id="submitbtn" value="Login"> -->
+          <input type="submit" class="btn btn-primary" name="submitbtn" id="submitbtn" value="Login">
+					<!-- <a gumby-trigger="#loginBtn">Login</a> -->
+
+                <!-- </button></div> --></td></tr></center>
 			</table>
 			</form>
-            </div></center>
+      </div></center>
+  </div>
+        
+        <!-- <div class="container" id="indeedDiv">
+        <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
+          href="http://www.indeed.com/" title="Job Search"><img
+          src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
+          vertical-align: middle;" alt="Indeed job search"></a></span>
         </div>
+        <div class="container" id="indeedSearchRes">
+          <a href="http://api.indeed.com/ads/apigetjobs?publisher=2891706259072003&jobkeys=developer&v=2&format=json.">Search</a>
+        </div> -->
+
       <br><br><br><br>
+      <center>
+        <a href="<?php echo base_url(); ?>extras/search_grabbed_data">Search Jobs Without Registering</a>
+      </center>
+
+    <!-- 
+      <center>
+      <div class="container" id="indeedSearchDiv">
+        <table>
+        <form method="post" name="indeedSearchFrm" id="indeedSearchFrm" action="<?php echo base_url(); ?>api_handler/curl_request_indeed" class="form-control">
+          <tr>
+            <td>Keywords:</td>
+            <td><input type="text" name="searchKey" id="searchKey" placeholder="Job Title or Keyword"></td>
+          </tr>
+          <tr>
+            <td>Location:</td>
+            <td><input type="text" name="searchLoc" id="searchLoc" placeholder="State, County, Province or Territory"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="button" name="searchBtn" id="searchBtn" value="Search" class="btn btn-primary"></td>
+          </tr>
+        </form></table>
+      </div>
+      </center> -->
+
+      <div class="container" id="indeedSearchResults">
+
+      </div>
+
       <div class="ten columns">
-      <footer style="color: white; height: 80px; background-color: orange;">
+      <footer style="color: white; height: 80px; margin-top: 150px; background-color: #CC0000;">
           <center>
-          &copy; 2015 All rights reserved to<br> Center for Community Development
-          Ateneo de Naga University
+          &copy; 2015 All rights reserved to<br> <b>Wrrkrs.com</b>
           </center>
       </footer>
       </div>
     </div>
    </div>
-
-    <script>
-        var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
-        if(!oldieCheck) {
-            document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
-        } else {
-            document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
-        }
-    </script>
-    <script>
-        if(!window.jQuery) {
-            if(!oldieCheck) {
-              document.write('<script src="../js/libs/jquery-2.0.2.min.js"><\/script>');
-          } else {
-              document.write('<script src="../js/libs/jquery-1.10.1.min.js"><\/script>');
-          }
-      }
-  </script>
-  <script gumby-touch="/js/libs" src="<?php echo base_url(); ?>js/libs/gumby.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/ui/gumby.retina.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/ui/gumby.fixed.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/ui/gumby.toggleswitch.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/ui/gumby.radiobtn.js"></script>
-  
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/ui/gumby.tabs.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/libs/gumby.init.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
-
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/dataTables.jqueryui.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/dataTables.tableTools.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/dataTables.tableTools.js"></script>
-
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/dataTables.jqueryui.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.dataTables.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/dataTables.tableTools.css">
-
 </div>
-<script type="text/javascript">
-// $('#submitbtn').click(function(e){
-//     alert('submitted!');
-// });
-</script>
 </body>
+<script type="text/javascript">
+  $('#searchBtn').click(function(e){
+    e.preventDefault();
+    var postData = $("#indeedSearchFrm").serialize();
+    alert('sending data');
+    $.ajax({
+      type: "POST", 
+      async: false, 
+      cache: false, 
+      data: postData,
+      dataType: "JSON", 
+      url: '<?php echo base_url(); ?>api_handler/curl_request_indeed',
+      error: function(error, status){
+        alert(error + status);
+        console.log(error);
+        console.log(status);
+      }, 
+      success: function(data, status){
+        alert(data);
+        console.log(data);
+        console.log(status);
+      }
+    });
+  }); 
+</script>
 </html>

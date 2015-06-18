@@ -1,0 +1,627 @@
+body {
+  	/* IE10 Consumer Preview */
+/*	background-image: -ms-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #00A3EF 100%);*/
+
+	/* Mozilla Firefox */
+/*	background-image: -moz-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #00A3EF 100%);*/
+
+	/* Opera */
+/*	background-image: -o-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #00A3EF 100%);*/
+
+	/* Webkit (Safari/Chrome 10) */
+/*	background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));*/
+
+	/* Webkit (Chrome 11+) */
+/*	background-image: -webkit-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #00A3EF 100%);*/
+
+	/* W3C Markup, IE10 Release Preview */
+/*	background-image: radial-gradient(circle farthest-corner at center, #FFFFFF 0%, #00A3EF 100%);*/
+	/*background-color: */
+/*	background-color: gray;*/
+	/*background-color: #7F7D70;*/
+	/*background-color: #B1BFB5;*/
+	background-color: #B7BFB1;
+	/*background-color: #3B403C;*/
+}
+
+header {
+	background-color: blue;
+	margin: auto; 
+	background-color: #129fef;
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+}
+
+.userstable {
+	background-color: white;
+	color: black; 
+}
+
+.pageDiv {
+	margin: auto; 
+	min-height: 680px;
+}
+
+.topDiv {
+	background-color: #40E0D0;
+	height: 60px; 
+	color: white;
+	font-size: 30px;
+	font-family: none;
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+.topDiv a:link {
+	text-decoration: none;
+    color: #000000; font-size: 30px;
+}
+
+.topDiv a:hover {
+	text-decoration: none;
+	font-size: 30px; color: white; 
+}
+
+
+.resultDiv {
+	background-color: none;
+	margin-top: 10px; color: black;
+	padding: 10px 10px 10px 10px;
+	width: 1200px; float: right;
+}
+
+.resultDiv p {
+	color: gray; text-decoration: none;
+}
+
+.resultDiv h2 a:link {
+	color: blue; text-decoration: none;
+}
+
+.resultDiv h2 a:hover {
+	color: red; text-decoration: none;
+}
+
+.sideBar{
+	background-color: green; float: left;
+	width: 300px; min-height: 450px; 
+	margin-top: 0px; margin-bottom: 0px;
+	margin-right: 0px; margin-left: 0px;
+	padding: 10px 10px 10px 10px; color: white;
+}
+
+.loginDiv{
+	background-color: #19A3FF;
+	width: 300px;
+	height: 180px;
+	margin: auto;
+	margin-top: 20px;
+	padding: 20px 20px 20px 20px;
+	color: black;
+	border-radius: 5px;
+	text-decoration: center;
+}
+
+#errordiv{
+	background-color: #19A3FF;
+	color: black;
+	height: 50px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+/*	border-style: none;
+	border-color: yellow;*/
+}
+
+#errordiv p{
+	margin: auto;
+	color: white;
+}
+
+.welcomeBar { 
+	background-color: orange;
+	height: 80px; width: 300px;
+	color: white;
+	padding: 2px 2px 2px 2px;
+	float: right; margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.navMenu{
+	background-color: gray;
+	height: 80px; width: 1250px;
+	margin-top: 10px; margin-right: 0px;
+	margin-left: 0px; margin-bottom: 30px;
+	padding: 2px 2px 2px 2px; color: lightgray;
+	float: left; text-align: center;
+}
+
+#navtable td{
+	text-decoration: none;
+}
+
+#navtable td a:link{
+	text-decoration: none;
+	background-color: #40E0D0;
+}
+
+#navtable td a:hover{
+	text-decoration: none;
+	background-color: #33B3A6;
+	border-radius: 3px;
+	padding: 2 2 2 2;
+}
+
+/*.navMenu a:link{
+	color: white;
+}*/
+/*.navselected{
+	display: block;
+	text-decoration: none;
+	font-size: 18px;
+}
+.navigation{
+	display: block;
+	text-decoration: none;
+	font-size: 18px;	
+}*/
+.navMenu ul a:link{
+	display: block;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.navMenu ul a:hover{
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+}
+/*.navMenu ul{
+	display: block;
+}
+*/
+
+
+footer{
+	background-color: none;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	height: 30px; 
+	text-align: center;
+	color: white;
+	padding: 10 10 10 10;
+}
+
+#frmSignup{
+	background-color: lightgray;
+	margin-left: 100px;
+	margin-top: 100px;
+}
+
+h2{
+	font-size: 25px;
+	background-color: none;
+}
+
+p{
+	color: black;
+}
+
+/*a:link {
+	color: red;
+}*/
+
+/* HOME PAGE */
+
+#welcomemsg{
+	background-color: green;
+	width: 500px;
+	height: 40px;
+	margin-top: 0px;
+}
+
+.content
+{
+  width: 900px; font-size: 20px;
+  background-color: white; margin: auto; text-align: center;
+  margin-top: 20px; border-style: groove; border-color: black;
+  border-radius: 15px;
+}
+
+
+/*=========ADVISEMENT PAGE=============*/
+.offeringsTab
+{
+	/*background-color: yellow;*/
+}
+
+.offeringsTable
+{
+	/*min-height: 600px;*/
+	height: auto;
+	float: left; 
+	/*background-color: red*/
+
+}
+
+.leftTab
+{
+	float: left;
+	/*border: solid; */
+	padding: 2 2 2 2;
+	margin-top: 20px;
+}
+
+.rightTab
+{
+	margin-top: 20px;
+	/*border: solid; */
+	padding: 2 2 2 2;
+}
+/*.rightTab
+{
+	float: right;
+	border: solid; 
+	padding: 5 5 5 5;
+}*/
+
+.advisementFormTab
+{
+	height: auto;
+	float: right;
+/*	background-color: ;
+	border: solid; 
+	padding: 5 5 5 5;*/
+}
+
+/*=========ADVISEMENT PAGE=============*/
+#cssmenu
+{
+
+}
+
+#loggedinuser 
+{
+	float: left;
+}
+
+/*=========SECURED HOME PAGE=============*/
+.signupDiv
+{
+	background-color: white;
+	width: 500px; height: 400px;
+	margin: auto; 
+	border-radius: 3px;
+}
+
+/*=========FIRST YEAR BLOCK SCHEDULING PAGE=============*/
+.myModules 
+{
+	background-color: transparent;
+	min-height: 50px;
+	margin-left: 80px;
+}
+
+.myModulesTable {
+	margin-left: 100px;
+}
+
+#block_name {
+	/*margin-top: 20px;
+	margin-bottom: 20px;*/
+	margin: auto;
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: white;
+	width: 300px;
+	height: 30px;
+}
+
+#createnewblock {
+	width: 200px;
+	height: 50px;
+	background-color: transparent;
+	float: right;
+}
+
+#facultyModal {
+/*	width: 500px;
+	height: 200px;*/
+	/*background-color: transparent;*/
+	float: right;	
+}
+
+#maxslot {
+	height: 30px;
+}
+
+/*=========UPPERCLASSMEN SCHEDULING PAGE=============*/
+#teacherinfo {
+	margin: auto;
+}
+
+#teachertabsdiv{
+	background-color: white;
+	width: 150px;
+	height: 30px;
+	margin: auto;
+	font-size: 30px;
+}
+
+#fullname {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+#availability {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+
+#expertise {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;	
+}
+#mystats {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+#department {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+
+#teacher_stats {
+	/*margin-top: 20px;
+	margin-bottom: 20px;*/
+	margin: auto;
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: white;
+	width: 300px;
+	height: 30px;
+}
+
+#teacherstatsdiv{
+	margin-bottom: 30px;
+}
+
+/*#roomfrm {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+*/
+#room_stats {
+	margin: auto;
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: white;
+	width: 300px;
+	height: 30px;
+}
+
+#roomstatsdiv {
+	background-color: white;
+	width: 150px;
+	height: 30px;
+	margin: auto;	
+}
+
+
+#room_capacity {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+
+#room_type {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+
+#room_building {
+	background-color: lightgray;
+	width: 300px;
+	height: 50px;
+	color: black;
+}
+
+
+/* VIEW INCOMING & OUTGOING REQUESTS VIEW */
+#errResultsDiv {
+	background-color: none;
+	color: red;
+	margin: auto;
+	text-align: center;
+	min-height: 40px;
+	max-width: 400px;
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+.teacherdetails {
+	margin: auto;
+	width: 400px;
+}
+
+#teacherreqtbl {
+	margin: auto;
+	text-align: center;
+	margin-top: 20px;
+	min-width: 500px;
+}
+
+#teacherreqtbl p{
+	margin: auto;
+	font-size: 20px;
+	text-align: center;
+}
+
+.teacherreqdetails {
+	background-color: white;
+	width: 200px;
+	margin-left: 20px;
+}
+
+#loader.spin {
+    -webkit-transform: rotate(100000deg);
+}
+
+/* LOGGED IN USER */
+.loggedinuserdiv {
+	width: 500px; 
+	background-color: none;
+	margin-left: 50px;
+}
+
+/* DATA TABLE JQUERY */
+.mytable {
+	width: 100%;
+}
+
+#mytable {
+	width: 100%;
+}
+
+h1 {
+	margin-left: 50px;
+}
+
+
+/* FOOTER */
+/*.benchmark {
+	text-align: right;
+	margin-right: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+*/
+/* TABLE WRAPPER */
+/*.tableWrapper {
+	width: 1300px;
+}
+*/
+
+/* SIDEBAR */
+/*#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #000;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+      padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+      left: 0;
+    }
+
+    #wrapper.active {
+      position: relative;
+      left: 250px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+      left: 250px;
+      width: 250px;
+      transition: all 0.4s ease 0s;
+    }
+
+}*/
+
+#sidebar-wrapper {
+  top: 52px;
+  left: -200px;
+  width: 200px;
+  background-color: #5677fc;
+  color: white;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  list-style: none;
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+}
+.sidebar-nav li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s ease-out;
+  margin-left: -200px;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+    left: 200px;
+  }
+}
+
+
+body{margin-top:50px;}
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+

@@ -5,6 +5,7 @@ CREATE TABLE EMPLOYERS(
 	emp_id int(10) AUTO_INCREMENT NOT NULL, 
 	emp_username varchar(50) NOT NULL, 
 	emp_password varchar(50) NOT NULL,
+	user_type varchar(20) NOT NULL, 
 	emp_first_name varchar(100) NOT NULL, 
 	emp_middle_initial varchar(5) NOT NULL, 
 	emp_last_name varchar(100) NOT NULL, 
@@ -19,10 +20,13 @@ CREATE TABLE EMPLOYERS(
 	PRIMARY KEY(emp_id)
 );
 
+
+
 CREATE TABLE FREELANCERS(
 	freelancer_id int(10) AUTO_INCREMENT NOT NULL, 
 	freelancer_username varchar(50) NOT NULL, 
 	freelancer_password varchar(50) NOT NULL,
+	user_type varchar(20) NOT NULL, 
 	freelancer_first_name varchar(100) NOT NULL, 
 	freelancer_middle_initial varchar(5) NOT NULL, 
 	freelancer_last_name varchar(100) NOT NULL, 
@@ -47,7 +51,34 @@ CREATE TABLE JOBS(
 	job_level varchar(50) NOT NULL, 
 	job_category varchar(100) NOT NULL, 
 	job_requirements varchar(500) NOT NULL, 
+	job_keywords varchar(500) NOT NULL, 
+	job_date_posting varchar(100) NOT NULL,
 	PRIMARY KEY(job_id)
+);
+
+// BASE TABLES FOR JOB POSTING
+CREATE TABLE JOB_LEVEL(
+	level_id int(10) AUTO_INCREMENT NOT NULL, 
+	level_name varchar(50) NOT NULL, 
+	PRIMARY KEY(level_id)
+);
+
+CREATE TABLE JOB_DURATION(
+	duration_id int(10) AUTO_INCREMENT NOT NULL, 
+	duration_name varchar(100) NOT NULL, 
+	PRIMARY KEY(duration_id)
+);
+
+CREATE TABLE JOB_CATEGORY(
+	category_id int(10) AUTO_INCREMENT NOT NULL, 
+	category_name varchar(100) NOT NULL, 
+	PRIMARY KEY(category_id)
+);
+
+CREATE TABLE JOB_TYPE(
+	type_id int(10) AUTO_INCREMENT NOT NULL, 
+	type_name varchar(20) NOT NULL, 
+	PRIMARY KEY(type_id)
 );
 
 CREATE TABLE EMPLOYER_JOB(
@@ -60,11 +91,7 @@ CREATE TABLE EMPLOYER_JOB(
 	emp_zipcode varchar(10) NOT NULL,
 	PRIMARY KEY(emp_job_id),
 	FOREIGN KEY(emp_id) REFERENCES EMPLOYERS(emp_id),
-	FOREIGN KEY(job_id) REFERENCES JOBS(job_id), 
-	FOREIGN KEY(emp_city) REFERENCES EMPLOYERS(emp_city), 
-	FOREIGN KEY(emp_state_province_region) REFERENCES EMPLOYES(emp_state_province_region),
-	FOREIGN KEY(emp_country) REFERENCES EMPLOYERS(emp_country), 
-	FOREIGN KEY(emp_zipcode) REFERENCES EMPLOYES(emp_zipcode)
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id)
 );
 
 CREATE TABLE FREELANCER_JOB(
@@ -76,17 +103,174 @@ CREATE TABLE FREELANCER_JOB(
 	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id)
 );
 
+CREATE TABLE FREELANCER_PROFILE(
+	freelancer_profile_id int(10) AUTO_INCREMENT NOT NULL, 
+	freelancer_id int(10) NOT NULL, 
+	freelancer_rating float(10) NOT NULL, 
+	freelancer_title varchar(100) NOT NULL, 
+	freelancer_skills varchar(500) NOT NULL, 
+	freelancer_summary varchar(500) NOT NULL,
+	freelancer_availability varchar(50) NOT NULL,
+	freelancer_education varchar(100) NOT NULL, 
+	freelancer_photo varchar(100) NOT NULL, 
+	freelancer_portfolio_pics varchar(500) NOT NULL,
+	PRIMARY KEY(freelancer_profile_id),
+	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id)
+);
+
+
+CREATE TABLE EMPLOYER_PROFILE(
+	emp_profile_id int(10) AUTO_INCREMENT NOT NULL, 
+	emp_id int(10) NOT NULL, 
+	emp_rating float(10) NOT NULL, 
+	emp_type varchar(50) NOT NULL, 
+	emp_summary varchar(500) NOT NULL,
+	emp_photo_logo varchar(500) NOT NULL, 
+	emp_industry varchar(100) NOT NULL, 
+	emp_benefits varchar(500) NOT NULL, 
+	emp_website varchar(100) NOT NULL, 
+	emp_portfolio_pics varchar(500) NOT NULL,
+	PRIMARY KEY(emp_profile_id),
+	FOREIGN KEY(emp_id) REFERENCES EMPLOYERS(emp_id)
+);
+
 CREATE TABLE JOB_APPLICATIONS(
 	job_application_id int(10) AUTO_INCREMENT NOT NULL, 
-	freelancer_id int(10) NOT NULL, 
 	job_id int(10) NOT NULL, 
 	job_application_status varchar(50) NOT NULL, 
 	PRIMARY KEY(job_application_id), 
-	FOREIGN KEY(job_id) REFERENCES JOBS(job_id), 
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id)
+);
+
+CREATE TABLE JOB_APPLICATION_RECORD(
+	application_record_id int(10) AUTO_INCREMENT NOT NULL, 
+	freelancer_id int(10) NOT NULL,
+	job_id int(10) NOT NULL, 
+	status varchar(100) NOT NULL, 
+	application_date varchar(100) NOT NULL, 
+	PRIMARY KEY(application_record_id), 
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id),
 	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id)
 );
 
 CREATE TABLE JOB_APPLICATION_RESPONSES(
 	job_response_id int(10) AUTO_INCREMENT NOT NULL, 
+	emp_id int(10) NOT NULL, 
+	job_id int(10) NOT NULL, 
+	response varchar(100) NOT NULL,
+	response_date varchar(100) NOT NULL, 
+	PRIMARY KEY(job_response_id), 
+	FOREIGN KEY(job_id) REFERENCES JOBS(job_id),
+	FOREIGN KEY(emp_id) REFERENCES EMPLOYERS(emp_id)
+);
 
+
+CREATE TABLE MESSAGES(
+	message_id int(10) AUTO_INCREMENT NOT NULL, 
+	message_subject varchar(100) NULL, 
+	message_body varchar(500) NOT NULL,
+	message_timestamp varchar(100) NOT NULL,
+	sender varchar(100) NOT NULL, 
+	receiver varchar(100) NOT NULL, 
+	PRIMARY KEY(message_id)
+);
+
+CREATE TABLE FREELANCER_MESSAGE(
+	freelancer_message_id int(10) AUTO_INCREMENT NOT NULL, 
+	freelancer_id int(10) NOT NULL, 
+	message_id int(10) NOT NULL, 
+	message_timestamp varchar(100) NOT NULL,
+	PRIMARY KEY(freelancer_message_id), 
+	FOREIGN KEY(freelancer_id) REFERENCES FREELANCERS(freelancer_id),
+	FOREIGN KEY(message_id) REFERENCES MESSAGES(message_id)
+);
+
+CREATE TABLE EMPLOYER_MESSAGE(
+	employer_message_id int(10) AUTO_INCREMENT NOT NULL, 
+	emp_id int(10) NOT NULL, 
+	message_id int(10) NOT NULL, 
+	message_timestamp varchar(100) NOT NULL,
+	PRIMARY KEY(employer_message_id), 
+	FOREIGN KEY(emp_id) REFERENCES EMPLOYERS(emp_id), 
+	FOREIGN KEY(message_id) REFERENCES MESSAGES(message_id)
+);
+---------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE TESTS(
+	test_id int(10) AUTO_INCREMENT NOT NULL, 
+	test_name varchar(50) NOT NULL, 
+	test_category varchar(50) NOT NULL, 
+	test_coverage varchar(500) NOT NULL, 
+	PRIMARY KEY(test_id)
+);
+
+CREATE TABLE TEST_RESULTS(
+	
+);
+
+
+
+
+======================================================================================================================
+
+/; i think i need to add base tables for the job type, job duration, job level, category, sub category this works in the job postings.
+
+/; i think city, province, state or region code must be added in the freelancers and employers database tables for easy job_code generation since job code needs to have the city code for fast searching of available jobs
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ALTER TABLE job_application_record AUTO_INCREMENT = 1;
+
+ALTER TABLE tablename AUTO_INCREMENT = 1
+ALTER TABLE ALLITEMS CHANGE itemid itemid INT(10)AUTO_INCREMENT PRIMARY KEY;
+
+DELETE FROM PARTICIPANT_RECORD;
+DELETE FROM PARTICIPANT_ORG_RECORD;
+DELETE FROM EMPLOYEES;
+
+ALTER TABLE PROGRAMS CHANGE program_id program_id INT(9)AUTO_INCREMENT PRIMARY KEY;
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+CREATE TABLE JOB_LOG( 
+	log_id int(10) AUTO_INCREMENT NOT NULL, 
+	job_title varchar(200) NOT NULL, 
+	company varchar(200) NOT NULL, 
+	city varchar(100) NOT NULL, 
+	state varchar(50) NOT NULL, 
+	country varchar(50) NOT NULL, 
+	formatted_location varchar(100) NOT NULL, 
+	source varchar(200) NOT NULL, 
+	date varchar(200) NOT NULL, 
+	snippet varchar(500) NOT NULL, 
+	url varchar(500) NOT NULL, 
+	//	
+	onmousedown varchar(200), 
+	latitude double(20), 
+	longtitude double(20), 
+	jobkey varchar(200), 
+	sponsored varchar(10), 
+	expired varchar(10), 
+	indeedApply varchar(10), 
+	formattedLocationFull varchar(500),
+	foremattedRelativeTime varchar(100),
+	//
+	PRIMARY KEY(log_id)
+)
+
+// FOR indeed.ca API handling
+CREATE TABLE indeed_jobs(
+	indeed_job_id int(10) AUTO_INCREMENT NOT NULL, 
+	job_title varchar(200) NOT NULL, 
+	company varchar(100) NOT NULL, 
+	city varchar(100) NOT NULL, 
+	state varchar(50) NOT NULL, 
+	country varchar(50) NOT NULL, 
+	location varchar(200) NOT NULL, 
+	source varchar(200) NOT NULL, 
+	date varchar(200) NOT NULL, 
+	snippet varchar(250) NOT NULL,
+	url varchar(500) NOT NULL, 
+	posted varchar(200) NOT NULL, 
+	PRIMARY KEY(indeed_job_id)
 );
